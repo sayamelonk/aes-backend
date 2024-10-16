@@ -28,6 +28,10 @@ def decrypt_message(encrypted_message, key):
     cipher = AES.new(key, AES.MODE_EAX, nonce=nonce)
     return cipher.decrypt(ciphertext).decode('utf-8')
 
+@app.route('/')
+def home():
+    return 'Hello from Flask on Vercel!'
+
 # API for encryption
 @app.route('/api/encrypt', methods=['POST'])  # Accepting only POST method
 def encrypt():
