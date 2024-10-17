@@ -29,11 +29,6 @@ def decrypt_message(encrypted_message, key):
     cipher = AES.new(key, AES.MODE_EAX, nonce=nonce)
     return cipher.decrypt(ciphertext).decode('utf-8')
 
-@app.before_request
-def require_authorization():
-    if 'Authorization' not in request.headers:
-        return jsonify({'message': 'Unauthorized'}), 401
-    
 @app.route('/')
 def home():
     return 'Hello from Flask on Vercel!'
