@@ -6,7 +6,8 @@ from flask_cors import CORS  # Import CORS module
 
 app = Flask(__name__)
 
-CORS(app)  # Menambahkan CORS
+# Mengizinkan semua origin, tapi bisa lebih spesifik jika diperlukan
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Function for AES encryption
 def encrypt_message(message, key):
